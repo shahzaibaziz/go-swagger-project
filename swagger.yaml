@@ -1,0 +1,81 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Identity Provider System"
+host: "localhost:8091"
+basePath: "/v1"
+schemes:
+  - "http"
+consumes:
+  -  "application/json"
+produces:
+  - "application/json"
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /test:
+    post:
+      operationId: "testEndpoint"
+      description: "check auth is valid or not"
+      tags:
+        - test
+      responses:
+        200:
+          description: "token is verify"
+          schema:
+            type: "object"
+        403:
+          description: "token is not verify"
+          schema:
+            $ref: '#/responses/403'
+        500:
+          description: "internal server error"
+          schema:
+            $ref: '#/responses/500'
+definitions:
+#  write your api model here
+  error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        example: error code
+      message:
+        type: string
+        example: error message
+
+responses:
+  400:
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/error'
+  401:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/error'
+  403:
+    description: Forbidden
+    schema:
+      $ref: '#/definitions/error'
+  404:
+    description: Not Found
+    schema:
+      $ref: '#/definitions/error'
+  409:
+    description: Conflict
+    schema:
+      $ref: '#/definitions/error'
+  500:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/error'
+  422:
+    description: Invalid json
+    schema:
+      $ref: '#/definitions/error'
