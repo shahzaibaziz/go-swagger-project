@@ -9,7 +9,7 @@ import (
 	"github.com/shahzaibaziz/GOProject/gen/restapi/operations/test"
 )
 
-// NewAcceptConsentChallenge handler of the accept consent challenge
+// NewDemoHandler handler of the accept consent challenge
 func NewDemoHandler(ctx context.Context, rt *runtime.Runtime) test.TestEndpointHandler {
 	return &demoHandler{
 		ctx: ctx,
@@ -23,6 +23,5 @@ type demoHandler struct {
 }
 
 func (c *demoHandler) Handle(params test.TestEndpointParams) middleware.Responder {
-
 	return test.NewTestEndpointOK()
 }

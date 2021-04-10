@@ -16,10 +16,9 @@ type Option struct {
 // DataStoreFactory holds configuration for data store
 type DataStoreFactory func(conf Option) (DataStore, error)
 
-var datastoreFactories = make(map[string]DataStoreFactory)
-
 // Register saves data store into a data store factory
 func Register(name string, factory DataStoreFactory) {
+	var datastoreFactories = make(map[string]DataStoreFactory)
 	if factory == nil {
 		log.Fatalf("Datastore factory %s does not exist.", name)
 		return
