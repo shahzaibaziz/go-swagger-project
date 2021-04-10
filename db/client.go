@@ -13,6 +13,17 @@ type Option struct {
 	TestMode bool
 }
 
+
+
+
+
+
+
+
+
+
+
+
 // DataStoreFactory holds configuration for data store
 type DataStoreFactory func(conf Option) (DataStore, error)
 
