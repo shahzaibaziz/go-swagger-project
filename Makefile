@@ -10,7 +10,7 @@ check: format install_lint
 	bash ./scripts/check.sh
 build:
 	bash ./scripts/build.sh
-test: check db_start
+test:
 	bash ./scripts/test.sh
 help:
 	@echo
