@@ -29,9 +29,11 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
     - name: Build the Docker mysql image
-      run: |
-        docker run -d --name mysql  -e MYSQL_ROOT_PASSWORD=myproject123 -p 3306:3306 mysql:5.7
-        docker exec -it mysql mysql -uroot -pmyproject123 -e 'CREATE DATABASE IF NOT EXISTS myschema;'
+      run:  docker run -d --name mysql  -e MYSQL_ROOT_PASSWORD=myproject123 -p 3306:3306 mysql:5.7
+
+    - name: Create database
+      run:  docker run -d --name mysql  -e MYSQL_ROOT_PASSWORD=myproject123 -p 3306:3306 mysql:5.7
+
 
 
     ## checks out our code locally so we can work with the files
