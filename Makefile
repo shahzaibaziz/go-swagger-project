@@ -6,7 +6,7 @@ codegen:
 	bash ./scripts/swagger.sh
 format:
 	bash ./scripts/format.sh
-check: format
+check: format install_lint
 	bash ./scripts/check.sh
 build:
 	bash ./scripts/build.sh
