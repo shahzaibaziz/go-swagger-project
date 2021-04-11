@@ -33,7 +33,7 @@ jobs:
 
 
     - name: Create database
-      run:  docker exec -it mysql mysql -uroot -pmyproject123 -e 'CREATE DATABASE IF NOT EXISTS myschema;'
+      run:  docker exec -it mysql mysql -uroot -pmyproject123 -e 'CREATE DATABASE IF NOT EXISTS database_name;'
 
 
 
