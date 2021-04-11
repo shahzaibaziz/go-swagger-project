@@ -28,10 +28,6 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: ${{ matrix.go-version }}
-    - name: Build the Docker mysql image
-      run:  docker-compose up -d mysql
-
-
 
 
 
@@ -39,5 +35,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    ## runs go test ./...
     - name: check & test
       run: make test
