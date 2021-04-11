@@ -29,11 +29,9 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
     - name: Build the Docker mysql image
-      run:  docker run -d --name mysql  -e MYSQL_ROOT_PASSWORD=myproject123 -p 3306:3306 mysql:latest
+      run:  docker-compose up -d mysql
 
 
-    - name: Create database
-      run:  docker exec -it mysql mysql -uroot -pmyproject123 -e 'CREATE DATABASE IF NOT EXISTS database_name;'
 
 
 
@@ -41,6 +39,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    ## runs go test ./...
-    - name: Test
-      run: go test ./...
+    - name: check & test
+      run: make test
