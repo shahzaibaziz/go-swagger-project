@@ -31,6 +31,7 @@ jobs:
     - name: Build the Docker mysql image
       run:  docker run -d --name mysql  -e MYSQL_ROOT_PASSWORD=myproject123 -p 3306:3306 mysql:latest
 
+
     - name: Create database
       run:  docker exec -it mysql mysql -uroot -pmyproject123 -e 'CREATE DATABASE IF NOT EXISTS myschema;'
 
